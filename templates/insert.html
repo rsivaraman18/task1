@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Insert Page</title>
+</head>
+<body>
+    {{data[0]}}
+    <form action="/api/student/add" method="POST">
+        <label for="name">Roll no : </label>
+        <input type="text" name =roll>
+
+        <label for="name">Name : </label>
+        <input type="text" name =sname>
+
+        <label for="dob">DOB : </label>
+        <input type="text" name =dob>
+
+        <label for="">Marks</label>
+        <input type="narks" name="mark">
+
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>
