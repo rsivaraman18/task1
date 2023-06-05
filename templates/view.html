@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> View page </title>
+    <link rel="stylesheet" href="../static/bootstrap.min.css">
+</head>
+<body>
+    <table class="table table-bordered">
+        <thead>
+            <th>S.No</th>
+            <th>Name</th>
+            <th>DOB</th>
+            <th>Marks</th>
+            <th>Grade</th>
+        </thead>
+
+        <tbody>
+            {% for res in data %}
+            <tr>
+                
+                <td> {{ res[0] }} </td>
+                <td> {{ res[1] }} </td>
+                <td> {{ res[2]  }} </td>
+                <td> {{res[3]}}   </td>
+                <td>{{res[4]}} </td>
+
+            </tr>
+
+            {% endfor %}
+        </tbody>
+
+    </table>
+    <h3>Pass Percentage: {{pa}}</h3>
+</body>
+</html>
