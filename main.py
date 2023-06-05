@@ -128,7 +128,10 @@ def result():
         con.commit()
     Pass_percentage = [ ( total - count) / total ]
     Pass_percentage = Pass_percentage* 100
-    print(Pass_percentage)
+    
+    cursor.execute("SELECT *from stud ")
+    result = cur.fetchall()
+    return render_template ('view.html',data = result,pa =Pass_percentage)
 
     
 
