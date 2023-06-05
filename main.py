@@ -42,14 +42,16 @@ def all_students1():
         name  =  request.form['sname']
         dob   =  request.form['dob']
         con   = sqlite3.connect('student.db')
-
-        cur = con.cursor( )
-        query = 'INSERT INTO stud (roll_no,name,dob) VALUES(?,?,?)'
-        tup_vale = (roll,name,dob)
-        cur.execute(query,tup_vale)
-        con.commit()
-        return render_template('new.html',data='successfully added')
-    return render_template('insert.html')
+        try:
+            cur = con.cursor( )
+            query = 'INSERT INTO stud (roll_no,name,dob) VALUES(?,?,?)'
+            tup_vale = (roll,name,dob)
+            cur.execute(query,tup_vale)
+            con.commit()
+            return render_template('new.html',data='successfully added')
+        except:
+            return render_template('insert.html'.data='Error in adding')
+    return render_template('insert.html'.data='Enter the data')
 
 
 
