@@ -37,12 +37,19 @@ def all_students():
 
 @app.route('/api/student/add',methods=['GET','POST'])
 def all_students1():
-    con = sqlite3.connect('student.db')
-    cur =con.cursor( )
-    query = 'INSERT INTO stud (roll_no,name,dob) VALUES(?,?,?)'
-    tup_vale =(3,'siva','1997-08-23')
-    cur.execute(query,tup_vale)
-    con.commit()
+    if request.method=='POST':
+        roll  = request.form['roll_no']
+        name  =  request.form['sname']
+        dob   =  request.form['dob']
+        con   = sqlite3.connect('student.db')
+
+        cur = con.cursor( )
+        query = 'INSERT INTO stud (roll_no,name,dob) VALUES(?,?,?)'
+        tup_vale = (roll,name,dob)
+        cur.execute(query,tup_vale)
+        con.commit()
+        return render_template('new.html',data='successfully added')
+    return render_template('insert.html')
 
 
 
